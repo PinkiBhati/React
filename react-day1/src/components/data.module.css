@@ -1,0 +1,47 @@
+
+  .border{
+      box-sizing: border-box;
+  }
+
+  .table {
+    margin-top: auto;
+    margin-left:auto; 
+    margin-right:auto;
+    border-collapse: collapse;
+  }
+  
+  .td {
+      font-size: large;
+      height: 25px;
+      width: 100px;
+      border: 2px solid black;
+  }
+
+  .button{
+      background-color:red;
+      width: 100px;
+      height: 25px;
+  }
+
+
+  .button:hover{
+      background-color:lightsalmon;   
+  }
+
+  .submit{
+      background-color: lightblue;
+      height: 30px;
+      width: 100px;
+  }
+
+  .submit:hover{
+      background-color: lightcyan;
+  }
+
+  .input{
+      height: 25px;
+      width: 320px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 2px solid black;
+  }
