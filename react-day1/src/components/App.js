@@ -77,7 +77,7 @@ class App extends Component {
         <button className={styles.submit} onClick={this.submitHandler}>Submit</button><br></br><br></br>
 
         {this.state.data.map((fruit, index) => {
-          return <Data className={styles.center}
+          return <Data 
             name={fruit.fruitname}
             quantity={fruit.quantity}
             delete={this.deleteHandler}
