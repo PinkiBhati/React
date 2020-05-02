@@ -10,14 +10,12 @@ const cockpit = (props) => {
     if (props.persons.length <= 1) {
         classes.push('bold');
     }
-    return ( <
-        div className = "Cockpit" >
-        <
-        h1 > { props.title } < /h1> <
-        p className = { classes.join(' ') } > This is nice < /p> <
-        button className = "button"
-        onClick = { props.toggle } > Toggle Person < /button> <
-        /div>
+    return (
+        <div className="Cockpit">
+            <h1>{props.title}</h1>
+            <p className={classes.join(' ')}>This is nice</p>
+            <button className="button" onClick={props.toggle}>Toggle Person</button>
+        </div>
     );
 };
 
