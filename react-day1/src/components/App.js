@@ -76,11 +76,12 @@ class App extends Component {
         <input className={styles.input} ref="textBox" id ="id1" type="text" onKeyPress={this.enterHandler} /><br/>
         <button className={styles.submit} onClick={this.submitHandler}>Submit</button><br></br><br></br>
 
-        {this.state.data.map((fruit, index) => {
+        {this.state.data.map((fruit,index) => {
           return <Data 
             name={fruit.fruitname}
             quantity={fruit.quantity}
             delete={this.deleteHandler}
+            key={index}
           ></Data>
         })}
       </div>
