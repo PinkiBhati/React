@@ -3,6 +3,7 @@ import Aux from '../../hoc/Aux'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 const INGREDIENT_PRICES={
     salad: 0.5,
     cheese:0.4,
@@ -19,7 +20,8 @@ class BurgerBuilder extends Component {
             meat:0
         },
         totalPrice: 4,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     }
 
     updatePurchaseState(ingredients){
@@ -74,6 +76,19 @@ class BurgerBuilder extends Component {
         })
         this.updatePurchaseState(updatedIngredients);
     }
+
+
+    purchasingHandler=()=>{
+        this.setState({purchasing: true});
+    }
+
+    purchasingCancelHandler=()=>{
+        this.setState({purchasing:false});
+    }
+
+    purchasingContinueHandler=()=>{
+        alert('You Continue');
+    }
     render() {
 
         const disabledInfo={
@@ -85,13 +100,22 @@ class BurgerBuilder extends Component {
         }
         return (
             <Aux>
-                <Modal/>
+               
+                <Modal show={this.state.purchasing} modalClosed={this.purchasingCancelHandler}>
+                    <OrderSummary ingredients={this.state.ingredients}
+                                  price={this.state.totalPrice}  
+                                  purchaseCancelled={this.purchasingCancelHandler}
+                                  purchaseContinued={this.purchasingContinueHandler}/>
+                </Modal>
+                
+
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
                  ingredientAdded={this.addIngredientHandler}
                  ingredientRemoved={this.removeIngredientHandler}
                  disabled={disabledInfo}
                  purchasable={this.state.purchasable}
+                 ordered={this.purchasingHandler}
                  price={this.state.totalPrice}/>
             </Aux>
         )

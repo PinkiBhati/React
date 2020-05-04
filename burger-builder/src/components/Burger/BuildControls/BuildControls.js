@@ -18,11 +18,12 @@ const controls=[
               label={cntrl.label}
               added={()=>props.ingredientAdded(cntrl.type)}
               removed={()=>props.ingredientRemoved(cntrl.type)}
-              disabled={props.disabled[cntrl.type]}/>
+              disabled={props.disabled[cntrl.type]}
+              />
         ))}
         <button 
         className={classes.OrderButton}
-        disabled={!props.purchasable}>Order Now</button>
+        disabled={!props.purchasable} onClick={props.ordered}>Order Now</button>
     </div>
      )
  };
