@@ -7,43 +7,57 @@ import classes from './blog.module.css';
 
 class Blog extends Component {
 
-    state={
-        posts:[],
-        selectedId: null
-
+    state = {
+        posts: [],
+        selectedId: null,
+        error: false
     }
-    componentDidMount(){
-        axios.get('http://jsonplaceholder.typicode.com/posts')
-            .then(response=>{
-                const posts= response.data.slice(0,4);
-                const updatedposts= posts.map(post=>{
-                    return{
+    componentDidMount() {
+        axios.get('/posts')
+            .then(response => {
+                const posts = response.data.slice(0, 4);
+                const updatedposts = posts.map(post => {
+                    return {
                         ...post,
-                        author: 'Max'
+                        author: 'Pinki'
                     }
                 })
                 this.setState({
                     posts: updatedposts
-                })
-                console.log(response);
-            }); 
+                });
+
+            }).catch(error =>{
+                
+                this.setState({error: true});
+            });
     }
 
-    postSelectedHandler=(id)=>{
+    postselectedHandler = (id) => {
 
-        this.setState({selectedId: id});
+        this.setState({ selectedId: id });
     }
-    render () {
-        const  posts= this.state.posts.map(post=>{
-            return <Post  clicked={this.postselectedHandler(post.id)} key={post.id} title={post.title} author={post.author}/>
-        })
+    render() {
+        let posts=<p style={{textAlign :'center'}}>Something went wrong</p>;
+        console.log('inside render')
+        console.log(this.state.error);
+        if(!this.state.error){
+            posts = this.state.posts.map(post => {
+
+                return <Post clicked={() => this.postselectedHandler(post.id)}
+                             key={post.id} 
+                             title={post.title}
+                              author={post.author} />
+            });
+        }
+       
+        
         return (
             <div>
                 <section className={classes.Posts}>
-                   {posts}
+                    {posts}
                 </section>
                 <section>
-                    <FullPost id={this.state.selectedId}/>
+                    <FullPost id={this.state.selectedId} />
                 </section>
                 <section>
                     <NewPost />

@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 
 import classes from  './newPost.module.css';
-
+import axios from 'axios';
 class NewPost extends Component {
     state = {
         title: '',
         content: '',
-        author: 'Max'
+        author: 'Pinki'
     }
 
+    postDatahandler=()=>{
+        const data={
+            title: this.state.title,
+            body: this.state.content,
+            author: this.state.author
+
+        }
+        axios.post('/posts',data)
+            .then(response=>{
+                console.log(response);
+            });
+    }
     render () {
         return (
             <div className={classes.NewPost}>
@@ -22,7 +34,7 @@ class NewPost extends Component {
                     <option value="Max">Max</option>
                     <option value="Manu">Manu</option>
                 </select>
-                <button>Add Post</button>
+                <button onClick={this.postDatahandler}>Add Post</button>
             </div>
         );
     }
