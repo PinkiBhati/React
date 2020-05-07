@@ -7,7 +7,10 @@ import './App.css';
 // import FunctionClick from './FunctionClick';
 // import ParentComponent from './ParentComponent';
 // import UserGreeting from './UserGreeting';
-import NameList from './NameList'
+//import NameList from './NameList'
+// import ParentComp from './ParentComp';
+// import RefsDemo from './RefsDemo';
+import FocusInput from './FocusInput';
 
 class App extends Component {
   
@@ -15,7 +18,7 @@ class App extends Component {
    return(
      <div className="App">
   
-       <NameList/>
+     <FocusInput/>
 
     
      </div>
