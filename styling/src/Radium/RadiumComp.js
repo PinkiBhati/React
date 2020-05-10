@@ -3,9 +3,7 @@ import Radium from 'radium';
 
 class RadiumComp extends Component {
     render() {
-
-
-        const desktop = {
+            const desktop = {
             color: 'red',
             '@media screen and (max-width: 500px)': {
                 display:'none'
@@ -29,8 +27,9 @@ class RadiumComp extends Component {
 
     return(
             <div>
-               <div style={mobile}>Mobile devices</div>
-               <div style={desktop}>Desktop devices</div>
+                
+               <p style={mobile}>Mobile devices</p>
+               <p style={desktop}>Desktop devices</p>
             </div >
         )
     }
