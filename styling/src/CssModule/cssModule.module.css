@@ -1,0 +1,19 @@
+.Div{
+    width: 90%;
+    height: 60px;
+    margin: auto;
+    border: 5px solid black;
+    box-shadow: black;
+    color: brown;
+    background-color: lightblue;
+}
+
+.Div:hover{
+    color:black;
+    background-color: cornflowerblue;
+}
+
+.Paragraph{
+    font-size: large;
+    text-align: center;
+}
