@@ -23,7 +23,7 @@ const controls=[
         ))}
         <button 
         className={classes.OrderButton}
-        disabled={!props.purchasable} onClick={props.ordered}>Order Now</button>
+        disabled={!props.purchasable} onClick={props.ordered}>{props.isAuth ? "Order Now" : "Sign up to Order"}</button>
     </div>
      )
  };
