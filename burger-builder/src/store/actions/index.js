@@ -10,3 +10,7 @@ export {
     purchaseInit,
     fetchorders
 } from './order'
+
+export{
+    auth
+} from './auth'

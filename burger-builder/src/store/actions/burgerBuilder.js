@@ -1,6 +1,8 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-order';
 
+//action Creators , they have a type
+//here name is payload , 
 export const addIngredient =(name)=>{
     return {
         type: actionTypes.ADD_INGREDIENT,
