@@ -36,6 +36,7 @@ export const purchaseBurger =(orderData, token)=>{
     }
 }
 
+
 export const purchaseInit =()=>{
     return{
         type: actionTypes.PURCHASE_INIT
@@ -62,10 +63,11 @@ export const fetchOrdersStart = ()=>{
     }
 }
 
-export const fetchorders=(token)=>{
+export const fetchorders=(token,userId)=>{
     return dispatch=>{
         dispatch(fetchOrdersStart())
-        axios.get('/orders.json?auth='+ token).then(res=>{
+        const queryParam ='?auth=' +token + '&orderBy="userId"&equalTo="'+userId +'"';
+        axios.get('/orders.json'+ queryParam).then(res=>{
             const fetchedOrders=[];
             for(let key in res.data){
                 fetchedOrders.push({
