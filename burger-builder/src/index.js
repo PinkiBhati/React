@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom'
 import App from './App';
-import { Provider, connect } from 'react-redux'
+import { Provider } from 'react-redux'
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
 import * as serviceWorker from './serviceWorker';
 import burgerBuilderReducer from './store/reducers/burgerBuilder'
