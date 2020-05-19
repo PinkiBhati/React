@@ -2,7 +2,8 @@ import React from 'react';
 
 import './IngredientList.css';
 
-const IngredientList = props => {
+const IngredientList = React.memo(props => {
+  console.log('Rendering ingredient list')
   return (
     <section className="ingredient-list">
       <h2>Loaded Ingredients</h2>
@@ -10,12 +11,12 @@ const IngredientList = props => {
         {props.ingredients.map(ig => (
           <li key={ig.id} onClick={props.onRemoveItem.bind(this, ig.id)}>
             <span>{ig.title}</span>
-            <span>{ig.amount}x</span>
+            <span>{ig.amount} Rs</span>
           </li>
         ))}
       </ul>
     </section>
   );
-};
+});
 
 export default IngredientList;
