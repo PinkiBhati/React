@@ -23,6 +23,7 @@ const Auth= React.lazy(()=>{
 const App = props => {
 
 const {onTryAutoSignUp}= props;
+
   useEffect(()=> {
    onTryAutoSignUp()
   },[onTryAutoSignUp]);
@@ -66,7 +67,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignUp: () => dispatch(actions.authCheckState())
-  }
+  }SHOP BY CATEGORY
+
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App)) 

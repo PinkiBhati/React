@@ -20,7 +20,7 @@ useEffect(()=> { // at the time of mount the main function will run (if dependen
         httpClient.interceptors.request.eject(reqInterceptor);
         httpClient.interceptors.response.eject(resInterceptor);
     }
-},[reqInterceptor, resInterceptor, httpClient.interceptors.request, httpClient.interceptors.response]);
+},[reqInterceptor, resInterceptor,  httpClient]);
 
 const errorConfirmedHandler = () => {
     setError(null);
