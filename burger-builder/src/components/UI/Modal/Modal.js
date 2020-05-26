@@ -5,10 +5,6 @@ import Backdrop from '../Backdrop/Backdrop'
 
 const Modal = props => {
 
-    // shouldComponentUpdate(nextProps, nextSate){
-    //     return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
-          
-    // }
 
    return (
             <Aux>

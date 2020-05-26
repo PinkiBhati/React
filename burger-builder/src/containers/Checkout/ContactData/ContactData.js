@@ -105,7 +105,7 @@ const ContactData =props=> {
         
 
     const orderHandler = (event) => {
-        event.preventDefault();
+        event.preventDefault(); 
         console.log(props.ingredients);
         const formData={};
         for(let formElementIdentifier in orderForm){

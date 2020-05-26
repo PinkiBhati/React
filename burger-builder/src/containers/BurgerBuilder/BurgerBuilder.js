@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import Aux from '../../hoc/Aux/Aux'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
@@ -6,7 +6,7 @@ import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import { useDispatch, useSelector, Provider, connect } from 'react-redux';
+import {  connect } from 'react-redux';
 import axios from '../../axios-order';
 import * as actions from '../../store/actions/index'
 
@@ -35,7 +35,7 @@ export const BurgerBuilder = props => {
     const { onInitIngredients } = props;
 
     useEffect(() => {
-        props.onInitIngredients();
+        onInitIngredients();
     }, [onInitIngredients]);
 
     const updatePurchaseState = (ingredients) => {
@@ -114,13 +114,10 @@ export const BurgerBuilder = props => {
 
     return (
         <Aux>
-
             <Modal show={purchasing} modalClosed={purchasingCancelHandler}>
                 {orderSummary}
             </Modal>
             {burger}
-
-
         </Aux>
     )
 
@@ -139,7 +136,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdded: ingName => dispatch(actions.addIngredient(ingName)),
         onIngredientRemoved: ingName => dispatch(actions.removeIngredient(ingName)),
-        onInitIngredients: useCallback(() => dispatch(actions.initIngredients()), [dispatch]),
+        onInitIngredients: () => dispatch(actions.initIngredients()),
         onInitPurchase: () => dispatch(actions.purchaseInit()),
         onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))
     }
