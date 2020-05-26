@@ -9,7 +9,7 @@ const NavigationItems=(props)=> (
         <NavigationItem link="/categories">Categories</NavigationItem>
          <NavigationItem link="/orders" >Orders</NavigationItem>
          <NavigationItem link="/cart" >Cart</NavigationItem>
-         <NavigationItem link="/auth">Log In</NavigationItem>
+         <NavigationItem link="/login">Log In</NavigationItem>
          
     </ul>
 )
